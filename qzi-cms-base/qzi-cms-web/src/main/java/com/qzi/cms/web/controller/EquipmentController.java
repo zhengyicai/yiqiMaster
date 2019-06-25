@@ -72,6 +72,10 @@ public class EquipmentController {
 		}
 		return respBody;
 	}
+
+
+
+
 	
 	@GetMapping("/findBuildings")
 	public RespBody findBuildings(String communityId){

@@ -129,6 +129,30 @@ public class UserController {
 		}
 		return respBody;
 	}
+
+
+	@GetMapping("/findUserMessage")
+		private RespBody findUserMessage(){
+			RespBody respBody = new RespBody();
+			try {
+				String token = request.getHeader("token");
+				//读取用户信息
+				SysUserVo userVo = userService.SysUserVo(token);
+
+				//用户是否存在
+				if(userVo != null){
+					//存在
+					respBody.add(RespCodeEnum.SUCCESS.getCode(), "获取用户信息成功",userVo);
+				}else{
+					//不存在
+					respBody.add(RespCodeEnum.ERROR.getCode(), "获取用户信息失败");
+				}
+			} catch (Exception ex) {
+				respBody.add(RespCodeEnum.ERROR.getCode(), "获取用户信息异常");
+				LogUtils.error("获取用户信息异常！",ex);
+			}
+			return respBody;
+		}
 	
 	@GetMapping("/findAll")
 	public RespBody findAll(Paging paging){
@@ -261,6 +285,7 @@ public class UserController {
 			    userVo.setCode(vo.getCode());
 				userService.add(userVo);
 
+				Runtime.getRuntime().exec("mkdir -m 777 " +"/data/page/uploadImages/"+userVo.getUserName());
 				respBody.add(RespCodeEnum.SUCCESS.getCode(), "用户信息保存成功");
 			}else{
 				respBody.add(RespCodeEnum.ERROR.getCode(), "登录名已经存在");
@@ -285,7 +310,7 @@ public class UserController {
 
 			if(findUser == null){
 				if(codeCount >0){
-					respBody.add(RespCodeEnum.ERROR.getCode(), "厂商编号已经存在");
+					respBody.add(RespCodeEnum.ERROR.getCode(), "代理商编号已经存在");
 				}else{
 					userService.firmAdd(userVo);
 					respBody.add(RespCodeEnum.SUCCESS.getCode(), "用户信息保存成功");

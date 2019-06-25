@@ -82,6 +82,36 @@ public class SysUserPo {
 	private String parentId;
 
 	private String remark;
+	/**
+	 * 联系人
+	 */
+
+	private String connect;
+
+
+	/**
+	 * 联系地址
+	 */
+
+
+	private String address;
+
+
+	public String getConnect() {
+		return connect;
+	}
+
+	public void setConnect(String connect) {
+		this.connect = connect;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
 
 	public String getRemark() {
 		return remark;

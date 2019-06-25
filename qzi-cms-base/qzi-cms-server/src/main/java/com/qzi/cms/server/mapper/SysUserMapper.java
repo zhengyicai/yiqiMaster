@@ -44,14 +44,14 @@ public interface SysUserMapper extends BaseMapper<SysUserPo>{
 	 * @param rwoBounds
 	 * @return
 	 */
-	@Select("select id,userName,loginName,mobile,roleId,roleName,userIcon,createTime,lastTime,state from sys_user order by createTime desc")
+	@Select("select id,userName,loginName,mobile,roleId,roleName,userIcon,createTime,lastTime,state,connect,address from sys_user order by createTime desc")
 	public List<SysUserVo> findAll(RowBounds rwoBounds);
 
 
-	@Select("select id,userName,loginName,mobile,roleId,roleName,userIcon,createTime,lastTime,state,code,parentId,remark from sys_user  where parentId=#{parentId}   order by createTime desc")
+	@Select("select id,userName,loginName,mobile,roleId,roleName,userIcon,createTime,lastTime,state,code,parentId,remark,connect,address from sys_user  where parentId=#{parentId}   order by createTime desc")
 	public List<SysUserVo> findAllChild(RowBounds rwoBounds,@Param("parentId") String parentId);
 
-	@Select("SELECT sy.* from sys_user sy,use_firm_admin ufa where sy.id = ufa.firmId and ufa.userId=#{userId} and sy.state='10'")
+	@Select("SELECT sy.* from sys_user sy,use_firm_admin ufa where sy.id = ufa.firmId and ufa.userId=#{userId} and sy.state='10' order by  sy.createTime desc")
 	public List<SysUserVo>  findRoleAll(RowBounds rwoBounds,@Param("userId") String userId);
 
 	@Select("SELECT sy.id,sy.userName value from sys_user sy,use_firm_admin ufa where sy.id = ufa.firmId and ufa.userId=#{userId} and sy.state='10'")

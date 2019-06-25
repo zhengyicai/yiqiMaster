@@ -200,6 +200,8 @@ public class UserServiceImpl implements UserService {
 		userPo.setRoleName(userVo.getRoleName());
 		userPo.setState(userVo.getState());
 		userPo.setRemark(userVo.getRemark());
+		userPo.setConnect(userVo.getConnect());
+		userPo.setAddress(userVo.getAddress());
 		userMapper.updateByPrimaryKey(userPo);
 	}
 

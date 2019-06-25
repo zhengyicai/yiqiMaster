@@ -93,6 +93,26 @@ public class SysUserVo implements Serializable{
 
 	private String communityId;
 
+
+	private String connect;
+	private String address;
+
+	public String getConnect() {
+		return connect;
+	}
+
+	public void setConnect(String connect) {
+		this.connect = connect;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
 	public String getCommunityId() {
 		return communityId;
 	}
