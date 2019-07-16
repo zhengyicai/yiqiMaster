@@ -110,6 +110,8 @@ public class EquipmentServiceImpl implements EquipmentService {
 		UseEquipmentPo equipmentPo = YBBeanUtils.copyProperties(equipmentVo, UseEquipmentPo.class);
 		String equIe = ToolUtils.getUUID();
 		equipmentPo.setId(equIe);
+
+		//代理商
 		equipmentPo.setCreateTime(new Date());
 		equipmentPo.setEquipmentId(generatorEquId(equipmentVo));
 		if(!EquipmentEnum.UNIT.getCode().equals(equipmentVo.getEquipmentType())){

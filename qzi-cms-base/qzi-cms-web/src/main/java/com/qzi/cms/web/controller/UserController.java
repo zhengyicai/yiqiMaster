@@ -171,6 +171,28 @@ public class UserController {
 	}
 
 
+	/**
+	 * 获取所有的代理商
+	 * @param paging
+	 * @return
+	 */
+	@GetMapping("/findAll2")
+	public RespBody findAll2(Paging paging,String parentId){
+		RespBody respBody = new RespBody();
+		try {
+			//保存返回数据
+			respBody.add(RespCodeEnum.SUCCESS.getCode(), "查找所有用户信息数据成功", userService.findAllChild(parentId,paging));
+			//保存分页对象
+			paging.setTotalCount(userService.findCount());
+			respBody.setPage(paging);
+		} catch (Exception ex) {
+			respBody.add(RespCodeEnum.ERROR.getCode(), "查找所有用户信息数据失败");
+			LogUtils.error("查找所有用户信息数据失败！",ex);
+		}
+		return respBody;
+	}
+
+
 
 
 	@GetMapping("/findAllChild")

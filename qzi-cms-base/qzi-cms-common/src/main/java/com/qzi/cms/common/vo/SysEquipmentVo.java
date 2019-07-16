@@ -36,6 +36,25 @@ public class SysEquipmentVo {
 
     	private String[] equipmentIds;
 
+    private String  agentUserId;
+    private String  agentUserName;
+
+    public String getAgentUserId() {
+        return agentUserId;
+    }
+
+    public void setAgentUserId(String agentUserId) {
+        this.agentUserId = agentUserId;
+    }
+
+    public String getAgentUserName() {
+        return agentUserName;
+    }
+
+    public void setAgentUserName(String agentUserName) {
+        this.agentUserName = agentUserName;
+    }
+
     public String[] getEquipmentIds() {
         return equipmentIds;
     }
