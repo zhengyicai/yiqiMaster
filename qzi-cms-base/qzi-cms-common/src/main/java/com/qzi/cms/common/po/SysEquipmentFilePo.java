@@ -45,6 +45,16 @@ public class SysEquipmentFilePo {
 	private String type;
 	private String align;
 
+	private String titleDetail;
+
+	public String getTitleDetail() {
+		return titleDetail;
+	}
+
+	public void setTitleDetail(String titleDetail) {
+		this.titleDetail = titleDetail;
+	}
+
 	public String getAlign() {
 		return align;
 	}

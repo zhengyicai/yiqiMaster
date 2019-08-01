@@ -40,7 +40,7 @@ public interface UseEquipmentTitleMapper extends BaseMapper<UseEquipmentTitlePo>
 	public void deleteEquipmentId(@Param("equipmentId") String  equipmentId);
 
 	@Delete("DELETE FROM use_equipment_title WHERE equipmentId = #{equipmentId} and fileId = #{fileId}")
-	public void deleteEquipmentId(@Param("equipmentId") String  equipmentId,@Param("fileId") String  fileId);
+	public void deleteEquipmentFileId(@Param("equipmentId") String  equipmentId,@Param("fileId") String  fileId);
 
 
 }

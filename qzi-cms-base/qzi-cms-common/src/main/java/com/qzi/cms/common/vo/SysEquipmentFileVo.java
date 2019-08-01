@@ -54,7 +54,15 @@ public class SysEquipmentFileVo {
 	private String[] equipmentIds;
 
 	private String align;
+	private String titleDetail;
 
+	public String getTitleDetail() {
+		return titleDetail;
+	}
+
+	public void setTitleDetail(String titleDetail) {
+		this.titleDetail = titleDetail;
+	}
 
 	public String[] getEquipmentIds() {
 		return equipmentIds;

@@ -54,6 +54,29 @@ public class SysEquipmentPo {
 	private String  agentUserId;
 	private String  agentUserName;
 
+
+	private String titileStatus;
+
+
+	private String titileDetail;
+
+
+	public String getTitileStatus() {
+		return titileStatus;
+	}
+
+	public void setTitileStatus(String titileStatus) {
+		this.titileStatus = titileStatus;
+	}
+
+	public String getTitileDetail() {
+		return titileDetail;
+	}
+
+	public void setTitileDetail(String titileDetail) {
+		this.titileDetail = titileDetail;
+	}
+
 	public String getAgentUserName() {
 		return agentUserName;
 	}

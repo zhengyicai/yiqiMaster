@@ -84,6 +84,8 @@ public class SysEquipmentController {
 		   sysEquipmentPo.setUserId(po.getUserId());
 		   sysEquipmentPo.setUserName(po.getUserName());
 		   sysEquipmentPo.setStatus("20");
+		   sysEquipmentPo.setTitileStatus("20");
+		   sysEquipmentPo.setTitileDetail("");
 		   sysEquipmentMapper.insert(sysEquipmentPo);
             
 
@@ -226,6 +228,7 @@ public class SysEquipmentController {
 		   			po.setType("10");
 		   			po.setUserId(vo.getUserId());
 					po.setEquipmentId(vo.getEquipmentId());
+					po.setTitleDetail("");
 					sysEquipmentFileMapper.insert(po);
 				}
 
@@ -241,6 +244,7 @@ public class SysEquipmentController {
 					po.setType("20");
 					po.setUserId(vo.getUserId());
 					po.setEquipmentId(vo.getEquipmentId());
+					po.setTitleDetail("");
 					sysEquipmentFileMapper.insert(po);
 				}
 
