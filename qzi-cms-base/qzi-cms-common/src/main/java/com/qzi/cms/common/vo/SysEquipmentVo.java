@@ -38,25 +38,25 @@ public class SysEquipmentVo {
 
     private String  agentUserId;
     private String  agentUserName;
-    private String titileStatus;
+    private String titleStatus;
 
 
-    private String titileDetail;
+    private String titleDetail;
 
-    public String getTitileStatus() {
-        return titileStatus;
+    public String getTitleStatus() {
+        return titleStatus;
     }
 
-    public void setTitileStatus(String titileStatus) {
-        this.titileStatus = titileStatus;
+    public void setTitleStatus(String titleStatus) {
+        this.titleStatus = titleStatus;
     }
 
-    public String getTitileDetail() {
-        return titileDetail;
+    public String getTitleDetail() {
+        return titleDetail;
     }
 
-    public void setTitileDetail(String titileDetail) {
-        this.titileDetail = titileDetail;
+    public void setTitleDetail(String titleDetail) {
+        this.titleDetail = titleDetail;
     }
 
     public String getAgentUserId() {

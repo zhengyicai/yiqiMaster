@@ -15,6 +15,7 @@ import com.qzi.cms.server.base.BaseMapper;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 import org.apache.ibatis.session.RowBounds;
 
 import java.util.List;
@@ -39,6 +40,14 @@ public interface SysEquipmentFileMapper extends BaseMapper<SysEquipmentFilePo>{
 
 	@Delete("delete from  sys_equipment_file where userId = #{userId}")
 	public void deleteListSelect(@Param("userId") String userId);
+
+
+	@Update("update sys_equipment_file set titleDetail = #{detail} where  equipmentId=#{equipmentId} and fileId =#{fileId} ")
+	public  void updateTitle(@Param("equipmentId") String equipmentId,@Param("fileId") String fileId,@Param("detail") String detail);
+	
+
+    @Select("select * from sys_equipment_file where equipmentId=#{equipmentId} and fileId =#{fileId} limit 1 ")
+	public SysEquipmentFileVo findOne(@Param("equipmentId") String equipmentId,@Param("fileId") String fileId);
 
 	
 

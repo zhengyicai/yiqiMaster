@@ -36,7 +36,7 @@ public interface SysFileUrlMapper extends BaseMapper<SysFileUrlPo>{
 
 
 	//查询该用户的所有资源数据
-	@Select("select * from sys_fileUrl where userId=#{userId} and state = '10'")
+	@Select("select f.*  from sys_fileUrl f  where f.userId=#{userId} and f.state = '10'")
 	public List<SysFileUrlVo> findAllList(@Param("userId") String userId);
 
 

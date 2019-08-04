@@ -84,8 +84,8 @@ public class SysEquipmentController {
 		   sysEquipmentPo.setUserId(po.getUserId());
 		   sysEquipmentPo.setUserName(po.getUserName());
 		   sysEquipmentPo.setStatus("20");
-		   sysEquipmentPo.setTitileStatus("20");
-		   sysEquipmentPo.setTitileDetail("");
+		   sysEquipmentPo.setTitleStatus("20");
+		   sysEquipmentPo.setTitleDetail("");
 		   sysEquipmentMapper.insert(sysEquipmentPo);
             
 
@@ -210,6 +210,35 @@ public class SysEquipmentController {
 
     		return respBody;
     	}
+
+	@GetMapping("/equipmentFile/findOne")
+    	public RespBody equipmentFilefindOne(SysEquipmentFilePo sysEquipmentFilePo){
+    		RespBody respBody = new RespBody();
+
+			respBody.add(RespCodeEnum.SUCCESS.getCode(), "查找文件所有数据成功", sysEquipmentFileMapper.findOne(sysEquipmentFilePo.getEquipmentId(),sysEquipmentFilePo.getFileId()));
+
+    		return respBody;
+    	}
+
+
+
+
+
+
+	    @PostMapping("/equipmentFile/updateTitle")
+	   	@SystemControllerLog(description="修改参数")
+	   	public RespBody updateTitle(@RequestBody SysEquipmentFileVo sysEquipmentFileVo){
+	   		RespBody respBody = new RespBody();
+	   		try {
+				sysEquipmentFileMapper.updateTitle(sysEquipmentFileVo.getEquipmentId(),sysEquipmentFileVo.getFileId(),sysEquipmentFileVo.getTitleDetail());
+				sysEquipmentMapper.updateTitleOne(sysEquipmentFileVo.getEquipmentId(),"10");
+	   			respBody.add(RespCodeEnum.SUCCESS.getCode(), "操作成功");
+	   		} catch (Exception ex) {
+	   			respBody.add(RespCodeEnum.ERROR.getCode(), "操作失败");
+	   			LogUtils.error("操作失败！",ex);
+	   		}
+	   		return respBody;
+	   	}
 
 
 	   @ResponseBody
@@ -339,6 +368,7 @@ public class SysEquipmentController {
 		   				po.setUserId(vo.getUserId());
 		   				po.setEquipmentId(listAll.get(aa).getId());
 		   				po.setAlign("10");
+						po.setTitleDetail("null,null,null,null,null");
 		   				sysEquipmentFileMapper.insert(po);
 		   			}
 
@@ -362,6 +392,7 @@ public class SysEquipmentController {
 
 		   				po.setUserId(vo.getUserId());
 		   				po.setEquipmentId(listAll.get(aa).getId());
+						po.setTitleDetail("null,null,null,null,null");
 
 		   				sysEquipmentFileMapper.insert(po);
 		   			}
@@ -411,6 +442,7 @@ public class SysEquipmentController {
 			   				po.setUserId(vo.getUserId());
 			   				po.setEquipmentId(vo.getEquipmentIds()[aa]);
 			   				po.setAlign("10");
+			   				po.setTitleDetail("null,null,null,null,null");
 			   				sysEquipmentFileMapper.insert(po);
 			   			}
 
@@ -470,6 +502,7 @@ public class SysEquipmentController {
 	@GetMapping("/equipmentFile/findSelectType")
 	public RespBody equipmentFileSelectType(String equipmentId){
 			RespBody respBody = new RespBody();
+
 			respBody.add(RespCodeEnum.SUCCESS.getCode(), "查找文件所有数据成功", sysEquipmentFileMapper.findAll(equipmentId));
 
 			return respBody;

@@ -29,6 +29,15 @@ public class SysFileUrlVo {
     	private Date createTime;
 
     	private String  remark;
+    	private String titleDetail;
+
+    public String getTitleDetail() {
+        return titleDetail;
+    }
+
+    public void setTitleDetail(String titleDetail) {
+        this.titleDetail = titleDetail;
+    }
 
     public String getId() {
         return id;
