@@ -43,6 +43,26 @@ public class SysEquipmentVo {
 
     private String titleDetail;
 
+    private String runTime;
+
+    private String updateTimes;
+
+    public String getUpdateTimes() {
+        return updateTimes;
+    }
+
+    public void setUpdateTimes(String updateTimes) {
+        this.updateTimes = updateTimes;
+    }
+
+    public String getRunTime() {
+        return runTime;
+    }
+
+    public void setRunTime(String runTime) {
+        this.runTime = runTime;
+    }
+
     public String getTitleStatus() {
         return titleStatus;
     }

@@ -86,6 +86,8 @@ public class SysEquipmentController {
 		   sysEquipmentPo.setStatus("20");
 		   sysEquipmentPo.setTitleStatus("20");
 		   sysEquipmentPo.setTitleDetail("");
+		   sysEquipmentPo.setRunTime(po.getRunTime());
+		   sysEquipmentPo.setUpdateTimes(po.getUpdateTimes());
 		   sysEquipmentMapper.insert(sysEquipmentPo);
             
 
@@ -325,6 +327,7 @@ public class SysEquipmentController {
 
 					po.setUserId(vo.getUserId());
 					po.setEquipmentId(vo.getEquipmentId());
+					po.setTitleDetail("null,null,null,null,null");
 
 					sysEquipmentFileMapper.insert(po);
 				}
@@ -530,6 +533,18 @@ public class SysEquipmentController {
 
 			return respBody;
 	}
+
+	@GetMapping("/equipment/updateOneTitleStatus")
+	public RespBody updateOneTitleStatus(String equipmentId){
+		RespBody respBody = new RespBody();
+		sysEquipmentMapper.updateOneTitleStatus(equipmentId,"20");
+		respBody.add(RespCodeEnum.SUCCESS.getCode(), "查找文件所有数据成功", "ok");
+
+		return respBody;
+	}
+
+
+
 
 
 	@GetMapping("/equipment/findParam")

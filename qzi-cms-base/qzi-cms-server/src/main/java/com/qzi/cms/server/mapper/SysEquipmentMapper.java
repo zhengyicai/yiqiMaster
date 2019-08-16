@@ -36,6 +36,10 @@ public interface SysEquipmentMapper extends BaseMapper<SysEquipmentPo>{
 	public void updateOne(@Param("id") String id, @Param("status") String status);
 
 
+	@Update("update sys_equipment set titleStatus = #{status} where id= #{id}")
+	public void updateOneTitleStatus(@Param("id") String id, @Param("status") String status);
+
+
 
 	@Update("update sys_equipment set titleStatus = #{status} where id= #{id}")
 	public void updateTitleOne(@Param("id") String id, @Param("status") String status);
